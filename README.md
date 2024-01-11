@@ -9,7 +9,7 @@ Label [fast]: low blood glucose level
 Label [glocose]: high blood glucose level
 
 <div align="center">
-<img src="https://github.com/Jiazxu/ecg_glucose_comparator/dataset/example.png" height="600px">
+<img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/dataset/example.png" height="600px">
 
 </div>
 
@@ -20,7 +20,7 @@ waiting...
 ### Training and test process
 
 <div align="center">
-<img src="https://github.com/Jiazxu/ecg_glucose_comparator/checkpoint/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3.png" height="600px">
+<img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/checkpoint/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3.png" height="600px">
 
 </div>
 
