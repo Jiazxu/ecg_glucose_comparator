@@ -1,0 +1,136 @@
+==> Epoch <59> starting training...
+ 20%|████████████████▍                                                                 | 7/35 [00:06<00:16,  1.67it/s]Train --> Step: 10       Loss: 0.1155    Acc: 95.938%    Correct/Total: (614/640)
+         Specificity: 96.207%   Sensitivity: 95.714%    TP/TN: 279/335
+ 54%|███████████████████████████████████████████▉                                     | 19/35 [00:07<00:01,  8.29it/s]Train --> Step: 20       Loss: 0.1178    Acc: 95.859%    Correct/Total: (1227/1280)
+         Specificity: 96.007%   Sensitivity: 95.739%    TP/TN: 553/674
+ 80%|████████████████████████████████████████████████████████████████▊                | 28/35 [00:07<00:00, 15.63it/s]Train --> Step: 30       Loss: 0.1236    Acc: 95.833%    Correct/Total: (1840/1920)
+         Specificity: 95.647%   Sensitivity: 95.981%    TP/TN: 813/1027
+100%|█████████████████████████████████████████████████████████████████████████████████| 35/35 [00:08<00:00,  4.24it/s]
+
+==> Epoch <59> validating...
+Val --> Step: 3         Loss: 0.6002    Acc: 75.521%    Correct/Total: (145/192)
+             Specificity: 73.913%       Sensitivity: 77.000%    TP/TN: 68/77
+Val --> Step: 6         Loss: 0.5886    Acc: 74.740%    Correct/Total: (287/384)
+             Specificity: 69.681%       Sensitivity: 79.592%    TP/TN: 131/156
+Val --> Step: 9         Loss: 0.6068    Acc: 74.306%    Correct/Total: (428/576)
+             Specificity: 70.567%       Sensitivity: 77.891%    TP/TN: 199/229
+ _______________________
+|                       |
+| Total time: 645.23    |
+| Epoch time: 15.45     |
+| Training time: 8.26   |
+| Val time: 7.16        |
+|_______________________|
+
+
+(ecg) D:\projects\ecg_github>python comparator_evaluate_v4.py
+D:/projects/ecg_github/dataset_20240105/val_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 4574
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1368
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 45.0 44.0
+100%|█████████████████████████████████████████████████████████████████████████████| 1368/1368 [00:29<00:00, 46.56it/s]
+Evaluation --> Loss: 0.0339     Acc: 83.991%    Correct/Total: (1149/1368)
+         Specificity: 87.088%   Sensitivity: 80.131%    TP/TN: 661/488  Label 0/1: 609/759
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 18/18 [00:08<00:00,  2.24it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 23/23 [00:09<00:00,  2.32it/s]
+Total evaluated waves: 1368
+Evaluation wave-wise--> Loss: 0.0525    Acc: 87.805%    Correct/Total: (36/41)
+         Specificity: 86.957%   Sensitivity: 88.889%    TP/TN: 20/16    Label 0/1: 18/23
+Wrong prediction list:
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/fast1\ecg_2023-09-27_14.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/fast1\ecg_2023-09-27_15.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_19.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_20.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_24.csv
+
+(ecg) D:\projects\ecg_github>python comparator_evaluate_v4.py --resume
+D:/projects/ecg_github/dataset_20240105/val_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 74.531%
+Last training epoch: 29
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 4574
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1368
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 42.0 42.0
+100%|█████████████████████████████████████████████████████████████████████████████| 1368/1368 [00:29<00:00, 45.87it/s]
+Evaluation --> Loss: 0.0488     Acc: 84.357%    Correct/Total: (1154/1368)
+         Specificity: 92.490%   Sensitivity: 74.220%    TP/TN: 702/452  Label 0/1: 609/759
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 18/18 [00:08<00:00,  2.23it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 23/23 [00:10<00:00,  2.28it/s]
+Total evaluated waves: 1368
+Evaluation wave-wise--> Loss: 0.0734    Acc: 90.244%    Correct/Total: (37/41)
+         Specificity: 95.652%   Sensitivity: 83.333%    TP/TN: 22/15    Label 0/1: 18/23
+Wrong prediction list:
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/fast1\ecg_2023-09-27.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/fast1\ecg_2023-09-27_14.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/fast1\ecg_2023-09-27_15.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_20.csv
+
+(ecg) D:\projects\ecg_github>python comparator_evaluate_v4.py
+D:/projects/ecg_github/dataset_20240105/test_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 4574
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 2601
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 46.0 45.0
+100%|█████████████████████████████████████████████████████████████████████████████| 2601/2601 [00:50<00:00, 51.62it/s]
+Evaluation --> Loss: 0.0283     Acc: 96.847%    Correct/Total: (2519/2601)
+         Specificity: 98.664%   Sensitivity: 94.896%    TP/TN: 1329/1190        Label 0/1: 1254/1347
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 40/40 [00:17<00:00,  2.27it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 37/37 [00:18<00:00,  2.04it/s]
+Total evaluated waves: 2601
+Evaluation wave-wise--> Loss: 0.0382    Acc: 100.000%   Correct/Total: (77/77)
+         Specificity: 100.000%  Sensitivity: 100.000%   TP/TN: 37/40    Label 0/1: 40/37
+Wrong prediction list:
+
+(ecg) D:\projects\ecg_github>python comparator_evaluate_v4.py --resume
+D:/projects/ecg_github/dataset_20240105/test_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 74.531%
+Last training epoch: 29
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 4574
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 2601
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 45.0 43.0
+100%|█████████████████████████████████████████████████████████████████████████████| 2601/2601 [00:52<00:00, 49.47it/s]
+Evaluation --> Loss: 0.0505     Acc: 96.348%    Correct/Total: (2506/2601)
+         Specificity: 98.515%   Sensitivity: 94.019%    TP/TN: 1327/1179        Label 0/1: 1254/1347
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 40/40 [00:17<00:00,  2.31it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 37/37 [00:18<00:00,  2.05it/s]
+Total evaluated waves: 2601
+Evaluation wave-wise--> Loss: 0.0743    Acc: 98.701%    Correct/Total: (76/77)
+         Specificity: 100.000%  Sensitivity: 97.500%    TP/TN: 37/39    Label 0/1: 40/37
+Wrong prediction list:
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/fast1\ecg_2023-09-23.csv

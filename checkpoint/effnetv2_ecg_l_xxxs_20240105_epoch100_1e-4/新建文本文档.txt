@@ -1,0 +1,119 @@
+==> Epoch <98> testing...
+Test --> Step: 3        Loss: 1.0299    Acc: 64.323%    Correct/Total: (247/384)
+             Specificity: 36.715%       Sensitivity: 96.610%    TP/TN: 76/171
+Test --> Step: 6        Loss: 1.1139    Acc: 61.328%    Correct/Total: (471/768)
+             Specificity: 33.254%       Sensitivity: 95.389%    TP/TN: 140/331
+Test --> Step: 9        Loss: 1.1548    Acc: 59.722%    Correct/Total: (688/1152)
+             Specificity: 30.878%       Sensitivity: 95.525%    TP/TN: 197/491
+ _______________________
+|                       |
+| Total time: 1134.10   |
+| Epoch time: 16.41     |
+| Training time: 8.67   |
+| Testing time: 7.72    |
+|_______________________|
+
+==> Epoch <99> starting training...
+  3%|██▎                                                                                | 1/35 [00:06<03:55,  6.93s/it]Train --> Step: 5        Loss: 0.0942    Acc: 99.531%    Correct/Total: (637/640)
+         Specificity: 99.561%   Sensitivity: 99.515%    TP/TN: 227/410
+ 23%|██████████████████▉                                                                | 8/35 [00:07<00:15,  1.75it/s]Train --> Step: 10       Loss: 0.0976    Acc: 99.141%    Correct/Total: (1269/1280)
+         Specificity: 99.315%   Sensitivity: 99.050%    TP/TN: 435/834
+ 31%|█████████████████████████▊                                                        | 11/35 [00:07<00:08,  2.83it/s]Train --> Step: 15       Loss: 0.0955    Acc: 99.271%    Correct/Total: (1906/1920)
+         Specificity: 99.541%   Sensitivity: 99.131%    TP/TN: 651/1255
+ 51%|██████████████████████████████████████████▏                                       | 18/35 [00:07<00:02,  6.39it/s]Train --> Step: 20       Loss: 0.0947    Acc: 99.297%    Correct/Total: (2542/2560)
+         Specificity: 99.427%   Sensitivity: 99.229%    TP/TN: 868/1674
+ 63%|███████████████████████████████████████████████████▌                              | 22/35 [00:07<00:01,  9.13it/s]Train --> Step: 25       Loss: 0.0955    Acc: 99.312%    Correct/Total: (3178/3200)
+         Specificity: 99.192%   Sensitivity: 99.377%    TP/TN: 1105/2073
+ 83%|███████████████████████████████████████████████████████████████████▉              | 29/35 [00:07<00:00, 14.65it/s]Train --> Step: 30       Loss: 0.0949    Acc: 99.297%    Correct/Total: (3813/3840)
+         Specificity: 99.174%   Sensitivity: 99.362%    TP/TN: 1321/2492
+ 91%|██████████████████████████████████████████████████████████████████████████▉       | 32/35 [00:07<00:00, 17.02it/s]Train --> Step: 35       Loss: 0.0958    Acc: 99.308%    Correct/Total: (4449/4480)
+         Specificity: 99.175%   Sensitivity: 99.380%    TP/TN: 1563/2886
+100%|██████████████████████████████████████████████████████████████████████████████████| 35/35 [00:08<00:00,  4.05it/s]
+ _______________________
+|                       |
+| Total time: 1142.83   |
+| Epoch time: 8.69      |
+| Training time: 8.67   |
+| Testing time: 0.00    |
+|_______________________|
+
+(ecg) D:\projects\ecg_github>python test.py
+D:/projects/ecg_github/dataset_20240105/val_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1368
+100%|█████████████████████████████████████████████████████████████████████████████████| 10/10 [00:11<00:00,  1.19s/it]
+Evaluation --> Loss: 0.0085     Acc: 62.109%    Correct/Total: (795/1280)
+            Specificity: 36.428%        Sensitivity: 94.200%    TP/TN: 259/536
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 18/18 [00:08<00:00,  2.13it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 23/23 [00:09<00:00,  2.30it/s]
+Total evaluated waves: 1368
+Evaluation wave-wise--> Loss: 0.0333    Acc: 60.976%    Correct/Total: (25/41)
+         Specificity: 30.435%   Sensitivity: 100.000%   TP/TN: 7/18     Label 0/1: 18/23
+Wrong prediction list:
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_16.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_18.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_19.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_20.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_21.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_22.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_23.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_24.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_25.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_26.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_28.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_29.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-09-27_30.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-10-07_6.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-10-07_7.csv
+         D:/projects/ecg_github/dataset_20240105/val_data/NEW_CSV_DIR/glucose1\ecg_2023-10-07_8.csv
+
+(ecg) D:\projects\ecg_github>python test.py
+D:/projects/ecg_github/dataset_20240105/test_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 2601
+100%|█████████████████████████████████████████████████████████████████████████████████| 20/20 [00:10<00:00,  1.93it/s]
+Evaluation --> Loss: 0.0022     Acc: 92.188%    Correct/Total: (2360/2560)
+            Specificity: 85.401%        Sensitivity: 99.435%    TP/TN: 1129/1231
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 40/40 [00:17<00:00,  2.32it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 37/37 [00:20<00:00,  1.78it/s]
+Total evaluated waves: 2601
+Evaluation wave-wise--> Loss: 0.0079    Acc: 94.805%    Correct/Total: (73/77)
+         Specificity: 89.189%   Sensitivity: 100.000%   TP/TN: 33/40    Label 0/1: 40/37
+Wrong prediction list:
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_14.csv
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_15.csv
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_16.csv
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_21.csv
+
+(ecg) D:\projects\ecg_github>python test.py --resume
+D:/projects/ecg_github/dataset_20240105/test_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 63.672%
+Last training epoch: 77
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 2601
+100%|█████████████████████████████████████████████████████████████████████████████████| 20/20 [00:13<00:00,  1.53it/s]
+Evaluation --> Loss: 0.0021     Acc: 92.734%    Correct/Total: (2374/2560)
+            Specificity: 86.848%        Sensitivity: 99.030%    TP/TN: 1149/1225
+Fast waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 40/40 [00:17<00:00,  2.29it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████████████████████████████████████| 37/37 [00:17<00:00,  2.15it/s]
+Total evaluated waves: 2601
+Evaluation wave-wise--> Loss: 0.0073    Acc: 94.805%    Correct/Total: (73/77)
+         Specificity: 89.189%   Sensitivity: 100.000%   TP/TN: 33/40    Label 0/1: 40/37
+Wrong prediction list:
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_14.csv
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_15.csv
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_16.csv
+         D:/projects/ecg_github/dataset_20240105/test_data/NEW_CSV_DIR/glucose1\ecg_2023-09-21_21.csv
