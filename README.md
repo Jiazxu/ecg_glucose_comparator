@@ -28,4 +28,4 @@ waiting...
 
 I collected all the ECG data from my iWatch Ultra in September, 2023.
 I did a series of [OGTT](https://www.mayoclinic.org/tests-procedures/glucose-tolerance-test/about/pac-20394296)-like tests on myself. I recorded dozens of waves before the test, and another dozens of waves after drinking the glucose solution(200 milliliters of a syrupy glucose solution containing 60 grams of glucose powder).
-These ECG waves were classified into two labels: fast
+These ECG waves were classified into two labels: fast and glucose
