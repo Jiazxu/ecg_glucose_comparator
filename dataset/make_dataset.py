@@ -20,7 +20,22 @@ if __name__ == '__main__':
 
     RAW_DIR = '../dataset/data_raw'
     NEW_DIR = '../dataset'
-    
+    ONE_WAVE_PT = NEW_DIR+'/training_data/PT_DIR/one_wave.pt'
+    dataloader = data_utils.ecg_loader(ONE_WAVE_PT, load_from_pt=True, batch_size=8, shuffle=True)
+
+    import numpy as np
+    import neurokit2 as nk
+    import matplotlib.pyplot as plt
+
+    for waves, labels in dataloader:
+
+        print(waves.size(), labels.size())
+        nk.signal_plot([w for w in waves], labels=['fast' if l==0 else 'glucose' for l in labels], subplots=True)
+        plt.show()
+
+        break   
+
+'''    
     # Establish training set, validation set, test set by date randomly.
     date_list = os.listdir(RAW_DIR)
     random.shuffle(date_list)
@@ -55,38 +70,11 @@ if __name__ == '__main__':
         data_utils.csv_to_csv(RAW_DIR, test_list, SAVE_DIR)
         data_utils.csv_to_pt(root=SAVE_DIR, meal=False, one_wave=True, mode='not_combine', 
                              file_path=NEW_DIR+'/test_data/PT_DIR/one_wave.pt')
-        
-        # 1006 : csv_to_csv completed.
-        # 1005 : csv_to_csv completed.
-        # 0924 : csv_to_csv completed.
-        # 0926 : csv_to_csv completed.
-        # 0928 : csv_to_csv completed.
-        # 0930 : csv_to_csv completed.
-        # 1002 : csv_to_csv completed.
-        # 1008 : csv_to_csv completed.
-        # ==> Dataset building starts...
-        # ==> Building completed, saving starts...
-        # ==> Saving completed! Total Time: 47.05 seconds
-        # ==> Total waves: 4574. FF: 2963, FG: 1611
-        # ==> Sample shape: (384,)
-        # 0927 : csv_to_csv completed.
-        # 1007 : csv_to_csv completed.
-        # ==> Dataset building starts...
-        # ==> Building completed, saving starts...
-        # ==> Saving completed! Total Time: 14.49 seconds
-        # ==> Total waves: 1368. FF: 609, FG: 759
-        # ==> Sample shape: (384,)
-        # 0923 : csv_to_csv completed.
-        # 0925 : csv_to_csv completed.
-        # 0921 : csv_to_csv completed.
-        # ==> Dataset building starts...
-        # ==> Building completed, saving starts...
-        # ==> Saving completed! Total Time: 26.39 seconds
-        # ==> Total waves: 2601. FF: 1254, FG: 1347
-        # ==> Sample shape: (384,)
 
     else:
         print("Cancel.")
+'''
+
 
     
 ''' 
