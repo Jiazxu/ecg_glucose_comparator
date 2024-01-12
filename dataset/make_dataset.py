@@ -21,7 +21,7 @@ if __name__ == '__main__':
     RAW_DIR = '../dataset/data_raw'
     NEW_DIR = '../dataset'
     ONE_WAVE_PT = NEW_DIR+'/training_data/PT_DIR/one_wave.pt'
-    dataloader = data_utils.ecg_loader(ONE_WAVE_PT, load_from_pt=True, batch_size=8, shuffle=True)
+    dataloader = data_utils.ecg_loader(ONE_WAVE_PT, load_from_pt=True, batch_size=4, shuffle=True)
 
     import numpy as np
     import neurokit2 as nk
