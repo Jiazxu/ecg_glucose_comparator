@@ -21,7 +21,7 @@ from utils.model_utils import *
 
 #model_name = 'MobileNetV2'
 #from models.MobileNetV2 import *
-model_name = 'effnetv2_ecg_l_xxxs_20240105_epoch30_1e-4'
+model_name = 'effnetv2_ecg_l_xxxs_20240111_epoch150_1e-4'
 from models.EfficientNetV2 import *
 
 # ---------------------- Configuration and parameters -------------------------------------------
@@ -38,7 +38,7 @@ if not os.path.isdir(checkpoint_path):
 
 best_acc = 0    # best test accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
-total_epoch = 30
+total_epoch = 150
 BATCH_SIZE = 128 # train and test batch size    
 NUM_WORKERS = 1  # CPU cores
 LR = 1e-4
@@ -127,8 +127,12 @@ if __name__ == '__main__':
     # Traverse all epoch
     total_time = time.time()
 
-    counter = []
-    loss_history = [] 
+    counter_train = []
+    counter_val = []
+    loss_history_train = []
+    loss_history_val = []
+    acc_train = []
+    acc_val = [] 
     iteration_number = 0
 
     for epoch in range(start_epoch, start_epoch+total_epoch):
@@ -166,25 +170,27 @@ if __name__ == '__main__':
             CP += labels.sum().item()
             CN += (labels.size(0) - labels.sum().item())    
 
-            if (i+1) % 5 == 0:
+            monitor_interval = 5
+            if (i+1) % monitor_interval == 0:
 
                 print('Train --> Step: {} \tLoss: {:.4f} \tAcc: {:.3f}% \tCorrect/Total: ({}/{})\n\
          Specificity: {:.3f}% \tSensitivity: {:.3f}% \tTP/TN: {}/{}'
                         .format(i+1, train_loss/(i+1), 100.*correct/total, correct, total, \
                                 100.*TP/CP, 100.*TN/CN, TP, TN))
                 
-                iteration_number += 5
-                counter.append(iteration_number)
-                loss_history.append(loss.item())
+                iteration_number += monitor_interval
+                counter_train.append(iteration_number)
+                loss_history_train.append(train_loss/(i+1))
+                acc_train.append(100.*correct/total)
 
         train_time = time.time()    
         
         # ---------------------- Validation -------------------------------------------------------
-        val_interval = 3
+        val_interval = 1
         if (epoch+1) % val_interval == 0:
             print('\n==> Epoch <%d> testing...' % epoch)
             net.eval()
-            test_loss = 0 
+            val_loss = 0 
             correct = 0
             total = 0
             # True Positive and negtive
@@ -201,7 +207,7 @@ if __name__ == '__main__':
                     outputs = net(waves)
                     loss = criterion(outputs, labels)       
 
-                    test_loss += loss.item()    
+                    val_loss += loss.item()    
 
                     predicted_labels = torch.round(outputs)
                     total += labels.size(0)
@@ -213,9 +219,13 @@ if __name__ == '__main__':
 
                 print('Test --> Step: {} \tLoss: {:.4f} \tAcc: {:.3f}% \tCorrect/Total: ({}/{})\n\
              Specificity: {:.3f}% \tSensitivity: {:.3f}% \tTP/TN: {}/{}'
-                            .format(i+1, test_loss/(i+1), 100.*correct/total, correct, total, \
+                            .format(i+1, val_loss/(i+1), 100.*correct/total, correct, total, \
                                     100.*TP/CP, 100.*TN/CN, TP, TN))
-            
+
+                counter_val.append(epoch)
+                loss_history_val.append((val_loss/(i+1)))
+                acc_val.append(100.*correct/total)
+
             # ---------------------- save checkpoint --------------------------------------------
             acc = 100.*correct/total
             if acc > best_acc:
@@ -250,6 +260,29 @@ if __name__ == '__main__':
                       train_time - start_time,
                       test_time - train_time)
              )
-    # plot loss history
-    plt.plot(counter, loss_history)
+
+    # plot Loss history
+    plt.subplot(2, 1, 1)
+
+    total_i = counter_train[-1]
+    counter_train = [(i*total_epoch/total_i) for i in counter_train]
+    plt.plot(counter_train, loss_history_train, color='red', label='train loss')
+   
+    plt.plot(counter_val, loss_history_val, color='green', label='val loss')
+    
+    #plt.title('Loss history')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.legend()
+
+    # plot Acc history
+    plt.subplot(2, 1, 2)   
+    plt.plot(counter_train, acc_train, color='red', label='train acc') 
+    plt.plot(counter_val, acc_val, color='green', label='val acc')
+    
+    #plt.title('Acc history')
+    plt.xlabel('Epochs')
+    plt.ylabel('Acc(%)')
+    plt.legend()
+
     plt.show()

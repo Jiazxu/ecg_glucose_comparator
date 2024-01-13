@@ -154,7 +154,7 @@ class EffNetV2_comparator_v5(nn.Module):
                 layers_encoder.append(block_encoder(input_channel, output_channel, s if i == 0 else 1, t, use_se))
                 input_channel = output_channel
 
-        self.features_encoder = nn.Sequential(*layers_encoder)
+        self.feature_encoder = nn.Sequential(*layers_encoder)
 
         ### feature comparator
         layers_comparator = [conv_3x3_bn(input_channel, input_channel, 1)]
@@ -170,7 +170,7 @@ class EffNetV2_comparator_v5(nn.Module):
                 input_channel = output_channel
 
         self.cat = conv_1x1_bn(input_channel*2, input_channel)
-        self.features_comparator = nn.Sequential(*layers_comparator)
+        self.feature_comparator = nn.Sequential(*layers_comparator)
 
         # building last several layers
         output_channel = _make_divisible(out_features * width_mult, 8) if width_mult > 1.0 else out_features
@@ -188,10 +188,10 @@ class EffNetV2_comparator_v5(nn.Module):
             reference = x
         else:
             x = self.normal_proprecessing(x)
-            reference = self.features_encoder(x)    #[b, 64, 96]
+            reference = self.feature_encoder(x)    #[b, 64, 96]
         
         z = self.normal_proprecessing(z)
-        z = self.features_encoder(z)
+        z = self.feature_encoder(z)
 
         #print("Test 0", x.shape, z.shape)
 
@@ -199,7 +199,7 @@ class EffNetV2_comparator_v5(nn.Module):
         cat = torch.cat([z, reference], dim=1)
         cat = self.cat(cat)
 
-        x = self.features_comparator(cat)   #[b, 128, 24]
+        x = self.feature_comparator(cat)   #[b, 128, 24]
         #print("Test 1", x.shape)
         
         x = self.conv(x)                    #[b, 16, 24]

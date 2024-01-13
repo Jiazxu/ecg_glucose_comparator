@@ -26,7 +26,7 @@ if __name__ == '__main__':
     BATCH_SIZE = 128
 
     # Define the path to the .pth file
-    model_name = 'effnetv2_ecg_l_xxxs_20240105_epoch100_1e-4'
+    model_name = 'effnetv2_ecg_l_xxxs_20240111_epoch150_1e-4'
     model_path = '../checkpoint/'+model_name+'/'+model_name+'_simple.pth'
     from models.EfficientNetV2 import *
     net = effnetv2_ecg_l_xxxs()
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     ONE_WAVE_PT_TEST =     '../dataset/test_data' 
     #ONE_WAVE_PT_ADD =      '../dataset/additional_data'     
 
-    ONE_WAVE_PT_EVALUATE = ONE_WAVE_PT_ADD
+    ONE_WAVE_PT_EVALUATE = ONE_WAVE_PT_TEST
     print(ONE_WAVE_PT_EVALUATE)
 
     load_model = True

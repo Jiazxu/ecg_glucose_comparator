@@ -1,0 +1,69 @@
+==> Epoch <149> starting training...
+  2%|██                                                                                 | 1/41 [00:05<03:41,  5.54s/it]Train --> Step: 5        Loss: 0.0781    Acc: 98.438%    Correct/Total: (630/640)
+         Specificity: 98.824%   Sensitivity: 98.182%    TP/TN: 252/378
+ 22%|██████████████████▏                                                                | 9/41 [00:05<00:12,  2.50it/s]Train --> Step: 10       Loss: 0.0794    Acc: 98.594%    Correct/Total: (1262/1280)
+         Specificity: 98.732%   Sensitivity: 98.489%    TP/TN: 545/717
+ 32%|██████████████████████████                                                        | 13/41 [00:05<00:06,  4.22it/s]Train --> Step: 15       Loss: 0.0742    Acc: 98.802%    Correct/Total: (1897/1920)
+         Specificity: 98.896%   Sensitivity: 98.733%    TP/TN: 806/1091
+ 41%|██████████████████████████████████                                                | 17/41 [00:06<00:03,  6.39it/s]Train --> Step: 20       Loss: 0.0723    Acc: 98.945%    Correct/Total: (2533/2560)
+         Specificity: 98.997%   Sensitivity: 98.906%    TP/TN: 1086/1447
+ 51%|██████████████████████████████████████████                                        | 21/41 [00:06<00:02,  9.01it/s]Train --> Step: 25       Loss: 0.0727    Acc: 98.938%    Correct/Total: (3166/3200)
+         Specificity: 98.988%   Sensitivity: 98.899%    TP/TN: 1369/1797
+ 71%|██████████████████████████████████████████████████████████                        | 29/41 [00:06<00:00, 15.32it/s]Train --> Step: 30       Loss: 0.0721    Acc: 98.906%    Correct/Total: (3798/3840)
+         Specificity: 99.031%   Sensitivity: 98.812%    TP/TN: 1635/2163
+ 80%|██████████████████████████████████████████████████████████████████                | 33/41 [00:06<00:00, 18.70it/s]Train --> Step: 35       Loss: 0.0712    Acc: 98.929%    Correct/Total: (4432/4480)
+         Specificity: 99.058%   Sensitivity: 98.833%    TP/TN: 1892/2540
+ 90%|██████████████████████████████████████████████████████████████████████████        | 37/41 [00:06<00:00, 21.88it/s]Train --> Step: 40       Loss: 0.0707    Acc: 98.945%    Correct/Total: (5066/5120)
+         Specificity: 99.000%   Sensitivity: 98.904%    TP/TN: 2177/2889
+100%|██████████████████████████████████████████████████████████████████████████████████| 41/41 [00:07<00:00,  5.72it/s]
+
+==> Epoch <149> testing...
+100%|██████████████████████████████████████████████████████████████████████████████████| 16/16 [00:06<00:00,  2.66it/s]
+Test --> Step: 16       Loss: 0.1695    Acc: 94.873%    Correct/Total: (1943/2048)
+             Specificity: 90.836%       Sensitivity: 99.784%    TP/TN: 1021/922
+ _______________________
+|                       |
+| Total time: 2143.72   |
+| Epoch time: 13.19     |
+| Training time: 7.16   |
+| Testing time: 6.01    |
+|_______________________|
+
+(ecg) D:\projects\ecg_glucose_comparator\supervised_learning>python evaluate.py
+../dataset/test_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1009
+100%|████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:07<00:00,  1.13s/it]
+Evaluation --> Loss: 0.0004     Acc: 98.549%    Correct/Total: (883/896)
+            Specificity: 98.571%        Sensitivity: 98.542%    TP/TN: 207/676
+Fast waves:
+100%|██████████████████████████████████████████████████████████████████████████████████| 25/25 [00:08<00:00,  2.89it/s]
+Glucose waves:
+100%|████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:06<00:00,  1.14it/s]
+Total evaluated waves: 1009
+Evaluation wave-wise--> Loss: 0.0017    Acc: 100.000%   Correct/Total: (32/32)
+         Specificity: 100.000%  Sensitivity: 100.000%   TP/TN: 7/25     Label 0/1: 25/7
+Wrong prediction list:
+
+(ecg) D:\projects\ecg_glucose_comparator\supervised_learning>python evaluate.py --resume
+../dataset/test_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 97.119%
+Last training epoch: 52
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1009
+100%|████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:07<00:00,  1.10s/it]
+Evaluation --> Loss: 0.0009     Acc: 98.772%    Correct/Total: (885/896)
+            Specificity: 99.517%        Sensitivity: 98.549%    TP/TN: 206/679
+Fast waves:
+100%|██████████████████████████████████████████████████████████████████████████████████| 25/25 [00:08<00:00,  3.12it/s]
+Glucose waves:
+100%|████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:02<00:00,  3.16it/s]
+Total evaluated waves: 1009
+Evaluation wave-wise--> Loss: 0.0035    Acc: 100.000%   Correct/Total: (32/32)
+         Specificity: 100.000%  Sensitivity: 100.000%   TP/TN: 7/25     Label 0/1: 25/7
+Wrong prediction list:
