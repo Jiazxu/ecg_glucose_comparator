@@ -7,6 +7,7 @@
 Total 264 ECG samples (divided into 8,543 QRS waves) recorded in 13 days.
 
 I splitted the data randomly **by date** into three dataset: training dataset, validation dataset and test dataset. The splitting ratio is 60:20:20.
+
 △ If all samples were mixed and splitted randomly, it could deteriorate the model performance in the real world. Because the waves recorded in the same date are similar.
 
 These ECG waves were classified into two labels:
@@ -26,7 +27,7 @@ This model's backbone is [EfficientNetV2(Fused-MBConv)](https://github.com/d-li1
 
 **1. Classic supervised learning**
 
-As a benchmark, I feeded the data into a classic EfficientNetV2.
+As a benchmark, I feeded the data into a classic EfficientNetV2 model.
 Here is the model architecture:
 
 <div align="center">
@@ -76,10 +77,11 @@ My vision is to broaden the possibilities and perspectives of big data, combinin
 I collected all the ECG data from my iWatch Ultra in September, 2023.
 
 (1) According to my recent physical examination, I have a normal health condition, which means that I am able to raise my BG level significantly after consuming a large amount of sugar.
-(2) BG level can affect the autonomic nervous system (ANS), which is involved in heart rhythm.
+
+(2) BG level can affect the autonomic nervous system (ANS), which is involved in the regulation of heart rhythm.
 
 Based on these facts, I assume that I could simulate two different blood level and record the ECG waves simultaneously, and try to find some relationships between BG level and ECG waves.
 
-During a series of [OGTT](https://www.mayoclinic.org/tests-procedures/glucose-tolerance-test/about/pac-20394296)-like tests on myself. I recorded dozens of waves before the test in the morning, at fasting state. One hour later after drinking the syrupy glucose solution(200 milliliters of water containing 60 grams of glucose powder), I recorded another dozens of ECG samples.
+During a series of [OGTT](https://www.mayoclinic.org/tests-procedures/glucose-tolerance-test/about/pac-20394296)-like tests on myself. In the morning, I recorded 10-15 waves at fasting state. Then I drunk the glucose solution(200 milliliters of water containing 60 grams of glucose powder). One hour later, I recorded another 10-15 ECG samples.
 
 In order to mitigate the affects of unrelevant factors, I drunk no coffee or tea, ate nothing, and made sure my mood and body position stayed in a similar state.
