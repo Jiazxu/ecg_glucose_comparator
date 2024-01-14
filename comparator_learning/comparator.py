@@ -26,7 +26,7 @@ from utils.model_utils import *
 
 # ---------------------- Choose model -------------------------------------------- 
 
-model_name = 'effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3'
+model_name = 'effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch200_4e-3'
 from models.EfficientNetV2_comparator_v5 import *
 
 
@@ -44,7 +44,7 @@ if not os.path.isdir(checkpoint_path):
 
 best_acc = 0    # best validation accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
-total_epoch = 100
+total_epoch = 200
 BATCH_SIZE = 128 # train and val batch size    
 NUM_WORKERS = 1  # CPU cores
 #LR = 1e-3

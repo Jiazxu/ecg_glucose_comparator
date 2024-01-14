@@ -1,0 +1,30 @@
+==> Epoch <149> starting training...
+ 10%|██████▌                                                            | 4/41 [00:05<00:37,  1.01s/it]Training --> Step: 5     Loss: 0.0686    Acc: 98.438%    Correct/Total: (315/320)
+         Specificity: 98.773%   Sensitivity: 98.089%    TP/TN: 161/154
+ 20%|█████████████                                                      | 8/41 [00:05<00:13,  2.41it/s]Training --> Step: 10    Loss: 0.0518    Acc: 98.750%    Correct/Total: (632/640)
+         Specificity: 99.054%   Sensitivity: 98.452%    TP/TN: 314/318
+ 34%|██████████████████████▌                                           | 14/41 [00:05<00:04,  5.43it/s]Training --> Step: 15    Loss: 0.0457    Acc: 98.750%    Correct/Total: (948/960)
+         Specificity: 99.177%   Sensitivity: 98.312%    TP/TN: 482/466
+ 41%|███████████████████████████▎                                      | 17/41 [00:05<00:03,  7.32it/s]Training --> Step: 20    Loss: 0.0458    Acc: 98.516%    Correct/Total: (1261/1280)
+         Specificity: 98.596%   Sensitivity: 98.435%    TP/TN: 632/629
+ 56%|█████████████████████████████████████                             | 23/41 [00:05<00:01, 12.02it/s]Training --> Step: 25    Loss: 0.0515    Acc: 98.062%    Correct/Total: (1569/1600)
+         Specificity: 98.058%   Sensitivity: 98.067%    TP/TN: 808/761
+ 63%|█████████████████████████████████████████▊                        | 26/41 [00:06<00:01, 14.65it/s]Training --> Step: 30    Loss: 0.0537    Acc: 97.969%    Correct/Total: (1881/1920)
+         Specificity: 97.898%   Sensitivity: 98.046%    TP/TN: 978/903
+ 83%|██████████████████████████████████████████████████████▋           | 34/41 [00:06<00:00, 21.10it/s]Training --> Step: 35    Loss: 0.0596    Acc: 97.679%    Correct/Total: (2188/2240)
+         Specificity: 97.642%   Sensitivity: 97.717%    TP/TN: 1118/1070
+ 90%|███████████████████████████████████████████████████████████▌      | 37/41 [00:06<00:00, 22.86it/s]Training --> Step: 40    Loss: 0.0620    Acc: 97.656%    Correct/Total: (2500/2560)
+         Specificity: 97.683%   Sensitivity: 97.628%    TP/TN: 1265/1235
+100%|██████████████████████████████████████████████████████████████████| 41/41 [00:07<00:00,  5.84it/s]
+
+==> Epoch <149> starting validating...
+100%|██████████████████████████████████████████████████████████████████| 33/33 [00:05<00:00,  5.72it/s]
+Validating --> Step: 64         Loss: 0.1070    Acc: 92.566%    Correct/Total: (1955/2112)
+             Specificity: 92.664%       Sensitivity: 92.472%    TP/TN: 960/995
+ _______________________
+|                       |
+| Total time: 1921.27   |
+| Epoch time: 12.82     |
+| Training time: 7.03   |
+| Val time: 5.77        |
+|_______________________|

@@ -1,0 +1,139 @@
+==> Epoch <199> starting training...
+  2%|█▋                                                                 | 1/41 [00:05<03:40,  5.50s/it]Training --> Step: 5     Loss: 0.0470    Acc: 99.062%    Correct/Total: (317/320)
+         Specificity: 98.000%   Sensitivity: 100.000%   TP/TN: 147/170
+ 22%|██████████████▋                                                    | 9/41 [00:05<00:12,  2.50it/s]Training --> Step: 10    Loss: 0.0397    Acc: 98.906%    Correct/Total: (633/640)
+         Specificity: 98.606%   Sensitivity: 99.150%    TP/TN: 283/350
+ 32%|████████████████████▉                                             | 13/41 [00:05<00:06,  4.20it/s]Training --> Step: 15    Loss: 0.0384    Acc: 98.854%    Correct/Total: (949/960)
+         Specificity: 98.434%   Sensitivity: 99.220%    TP/TN: 440/509
+ 41%|███████████████████████████▎                                      | 17/41 [00:06<00:03,  6.32it/s]Training --> Step: 20    Loss: 0.0438    Acc: 98.594%    Correct/Total: (1262/1280)
+         Specificity: 98.322%   Sensitivity: 98.830%    TP/TN: 586/676
+ 51%|█████████████████████████████████▊                                | 21/41 [00:06<00:02,  8.84it/s]Training --> Step: 25    Loss: 0.0399    Acc: 98.812%    Correct/Total: (1581/1600)
+         Specificity: 98.531%   Sensitivity: 99.060%    TP/TN: 738/843
+ 71%|██████████████████████████████████████████████▋                   | 29/41 [00:06<00:00, 14.72it/s]Training --> Step: 30    Loss: 0.0453    Acc: 98.490%    Correct/Total: (1891/1920)
+         Specificity: 98.138%   Sensitivity: 98.808%    TP/TN: 896/995
+ 80%|█████████████████████████████████████████████████████             | 33/41 [00:06<00:00, 17.74it/s]Training --> Step: 35    Loss: 0.0448    Acc: 98.438%    Correct/Total: (2205/2240)
+         Specificity: 98.223%   Sensitivity: 98.634%    TP/TN: 1050/1155
+ 90%|███████████████████████████████████████████████████████████▌      | 37/41 [00:06<00:00, 20.61it/s]Training --> Step: 40    Loss: 0.0441    Acc: 98.438%    Correct/Total: (2520/2560)
+         Specificity: 98.198%   Sensitivity: 98.656%    TP/TN: 1199/1321
+100%|██████████████████████████████████████████████████████████████████| 41/41 [00:07<00:00,  5.67it/s]
+
+==> Epoch <199> starting validating...
+100%|██████████████████████████████████████████████████████████████████| 33/33 [00:06<00:00,  5.38it/s]
+Validating --> Step: 64         Loss: 0.0820    Acc: 95.218%    Correct/Total: (2011/2112)
+             Specificity: 95.437%       Sensitivity: 95.000%    TP/TN: 1004/1007
+ _______________________
+|                       |
+| Total time: 2634.33   |
+| Epoch time: 13.38     |
+| Training time: 7.23   |
+| Val time: 6.13        |
+|_______________________|
+
+(ecg) D:\projects\ecg_glucose_comparator\comparator_learning>python evaluate.py
+../dataset/test_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 5363
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1009
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 50.0 49.0
+100%|██████████████████████████████████████████████████████████████| 1009/1009 [00:24<00:00, 41.17it/s]
+Evaluation --> Loss: 0.0311     Acc: 99.405%    Correct/Total: (1003/1009)
+         Specificity: 100.000%  Sensitivity: 99.230%    TP/TN: 230/773  Label 0/1: 779/230
+Fast waves:
+100%|██████████████████████████████████████████████████████████████████| 25/25 [00:19<00:00,  1.27it/s]
+Glucose waves:
+100%|████████████████████████████████████████████████████████████████████| 7/7 [00:05<00:00,  1.18it/s]
+Total evaluated waves: 1009
+Evaluation wave-wise--> Loss: 0.0471    Acc: 100.000%   Correct/Total: (32/32)
+         Specificity: 100.000%  Sensitivity: 100.000%   TP/TN: 7/25     Label 0/1: 25/7
+Wrong prediction list:
+
+(ecg) D:\projects\ecg_glucose_comparator\comparator_learning>python evaluate.py --resume
+../dataset/test_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 96.496%
+Last training epoch: 112
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 5363
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1009
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 48.0 48.0
+100%|██████████████████████████████████████████████████████████████| 1009/1009 [00:21<00:00, 47.84it/s]
+Evaluation --> Loss: 0.0336     Acc: 98.811%    Correct/Total: (997/1009)
+         Specificity: 100.000%  Sensitivity: 98.460%    TP/TN: 230/767  Label 0/1: 779/230
+Fast waves:
+100%|██████████████████████████████████████████████████████████████████| 25/25 [00:09<00:00,  2.54it/s]
+Glucose waves:
+100%|████████████████████████████████████████████████████████████████████| 7/7 [00:03<00:00,  2.30it/s]
+Total evaluated waves: 1009
+Evaluation wave-wise--> Loss: 0.0562    Acc: 100.000%   Correct/Total: (32/32)
+         Specificity: 100.000%  Sensitivity: 100.000%   TP/TN: 7/25     Label 0/1: 25/7
+Wrong prediction list:
+
+
+(ecg) D:\projects\ecg_glucose_comparator\comparator_learning>python evaluate.py
+../dataset/additional_data
+==> Load model...
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 5363
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 500
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 49.0 49.0
+100%|████████████████████████████████████████████████████████████████| 500/500 [00:14<00:00, 34.45it/s]
+Evaluation --> Loss: 0.0244     Acc: 81.400%    Correct/Total: (407/500)
+         Specificity: 3.158%    Sensitivity: 99.753%    TP/TN: 3/404    Label 0/1: 405/95
+Fast waves:
+100%|██████████████████████████████████████████████████████████████████| 13/13 [00:04<00:00,  2.68it/s]
+Glucose waves:
+100%|████████████████████████████████████████████████████████████████████| 3/3 [00:01<00:00,  2.42it/s]
+Total evaluated waves: 500
+Evaluation wave-wise--> Loss: 0.0364    Acc: 81.250%    Correct/Total: (13/16)
+         Specificity: 0.000%    Sensitivity: 100.000%   TP/TN: 0/13     Label 0/1: 13/3
+Wrong prediction list:
+         ../dataset/additional_data/NEW_CSV_DIR/glucose1\ecg_2024-01-08_3.csv
+         ../dataset/additional_data/NEW_CSV_DIR/glucose1\ecg_2024-01-08_4.csv
+         ../dataset/additional_data/NEW_CSV_DIR/glucose1\ecg_2024-01-08_5.csv
+
+(ecg) D:\projects\ecg_glucose_comparator\comparator_learning>python evaluate.py --resume
+../dataset/additional_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 96.496%
+Last training epoch: 112
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 5363
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 500
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 49.0 49.0
+100%|████████████████████████████████████████████████████████████████| 500/500 [00:12<00:00, 40.65it/s]
+Evaluation --> Loss: 0.0157     Acc: 80.800%    Correct/Total: (404/500)
+         Specificity: 7.368%    Sensitivity: 98.025%    TP/TN: 7/397    Label 0/1: 405/95
+Fast waves:
+100%|██████████████████████████████████████████████████████████████████| 13/13 [00:04<00:00,  2.76it/s]
+Glucose waves:
+100%|████████████████████████████████████████████████████████████████████| 3/3 [00:01<00:00,  2.89it/s]
+Total evaluated waves: 500
+Evaluation wave-wise--> Loss: 0.0253    Acc: 81.250%    Correct/Total: (13/16)
+         Specificity: 0.000%    Sensitivity: 100.000%   TP/TN: 0/13     Label 0/1: 13/3
+Wrong prediction list:
+         ../dataset/additional_data/NEW_CSV_DIR/glucose1\ecg_2024-01-08_3.csv
+         ../dataset/additional_data/NEW_CSV_DIR/glucose1\ecg_2024-01-08_4.csv
+         ../dataset/additional_data/NEW_CSV_DIR/glucose1\ecg_2024-01-08_5.csv

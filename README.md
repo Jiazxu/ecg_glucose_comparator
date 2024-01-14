@@ -2,6 +2,16 @@
 # A blood glucose level binary classification deep neural network
 ---
 
+## O. Model and Result
+
+<div align="center">
+<img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/description/supervised_learning.png">
+</div>
+
+<div align="center">
+<img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/checkpoint/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3.png">
+</div>
+
 ## I. Dataset
 
 Total 264 ECG samples (divided into 8,543 QRS waves) recorded in 13 days.
@@ -32,7 +42,6 @@ Here is the model architecture:
 
 <div align="center">
 <img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/description/supervised_learning.png">
-
 </div>
 
 **2. Comparator learning**
@@ -63,7 +72,6 @@ Here is my model:
 
 <div align="center">
 <img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/checkpoint/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3.png">
-
 </div>
 
 ## IV. About this project
@@ -82,6 +90,6 @@ I collected all the ECG data from my iWatch Ultra in September, 2023.
 
 Based on these facts, I assume that I could simulate two different blood level and record the ECG waves simultaneously, and try to find some relationships between BG level and ECG waves.
 
-During a series of [OGTT](https://www.mayoclinic.org/tests-procedures/glucose-tolerance-test/about/pac-20394296)-like tests on myself. In the morning, I recorded 10-15 waves at fasting state. Then I drunk the glucose solution(200 milliliters of water containing 60 grams of glucose powder). One hour later, I recorded another 10-15 ECG samples.
+During a series of [OGTT](https://www.mayoclinic.org/tests-procedures/glucose-tolerance-test/about/pac-20394296)-like tests on myself. In the morning, I recorded 10-15 waves at fasting state. Then I drunk the glucose solution(200 milliliters of water containing 60 grams of glucose powder). One hour later, another 10-15 ECG samples were recorded. I typically recorded my ECG everyday or two, and eventually got a 13-day, 264 samples dataset. (Unfortunately, I gained 5kg weight. 🤣🤣🤣)
 
 In order to mitigate the affects of unrelevant factors, I drunk no coffee or tea, ate nothing, and made sure my mood and body position stayed in a similar state.

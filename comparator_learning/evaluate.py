@@ -27,7 +27,7 @@ if __name__ == '__main__':
     ex_num = 50
 
     # Define the path to the .pth file
-    model_name = 'effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3'
+    model_name = 'effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch200_4e-3'
     model_path = '../checkpoint/'+model_name+'/'+model_name+'_simple.pth'
     from models.EfficientNetV2_comparator_v5 import *
     net = effnetv2_ecg_comparator_v5_l_xxxs()
@@ -35,9 +35,9 @@ if __name__ == '__main__':
     ONE_WAVE_PT_TRAINING = '../dataset/training_data/PT_DIR/one_wave.pt' 
     ONE_WAVE_PT_VAL =      '../dataset/val_data' 
     ONE_WAVE_PT_TEST =     '../dataset/test_data' 
-    #ONE_WAVE_PT_ADD =      '../dataset/additional_data'     
+    ONE_WAVE_PT_ADD =      '../dataset/additional_data'     
 
-    ONE_WAVE_PT_EVALUATE = ONE_WAVE_PT_TEST
+    ONE_WAVE_PT_EVALUATE = ONE_WAVE_PT_ADD
     print(ONE_WAVE_PT_EVALUATE)
 
     load_model = True
