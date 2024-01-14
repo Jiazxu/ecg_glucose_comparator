@@ -2,11 +2,15 @@
 # A blood glucose level binary classification deep neural network
 ---
 
-## O. Model and Result
+## 0. Model and Result
+
+**Model Architecture**
 
 <div align="center">
-<img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/description/supervised_learning.png">
+<img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/description/comparator_learning.png">
 </div>
+
+**Training Loss&Acc**
 
 <div align="center">
 <img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/checkpoint/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3.png">
