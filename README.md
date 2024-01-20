@@ -66,7 +66,7 @@ Wrong prediction list:
 
 **Total 264 one-lead ECG wave samples (30s for each wave, divided into 8,543 beats totally) recorded in 13 days.**
 
-**Recording equipment:** iWatch Ultra (Software: Version 1.9; Sample Rate: 512 hertz)
+Recording equipment: iWatch Ultra (Software: Version 1.9; Sample Rate: 512 hertz)
 
 I splitted the data randomly **by date** into three dataset: training dataset, validation dataset and test dataset. The splitting ratio is 60:20:20.
 
@@ -104,9 +104,9 @@ However, due to the scale of the dataset, the training process was overfitted re
 
 🤔Thus, I reconstructed the architecture and training workflow. From a mathematical perspective, by **comparing the similarity of two beats randomly**, the training data increases exponentially and could alleviate the overfitting.
 
-In the EffNetV2_comparator, I used two MBConv block: the **feature_encoder** extracts the features from the similarities of two beats; and the **feature_comparator** works as a hyper-dimension distance function, instead of a euclidean metric function.
+In the EffNetV2_comparator, I used two MBConv block: the **feature_encoder** extracts the features from the similarities of two beats; and the **feature_comparator** works as a non-linear hyper-dimension distance function, instead of a euclidean metric function or a linear classifier.
 
-After finishing this project, I found this training style looks like Contrastive Learning lol. But the difference is
+After finishing this project, I found this training style looks like Contrastive Learning lol🤣.
 
 Here is my model:
 
