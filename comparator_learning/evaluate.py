@@ -37,7 +37,7 @@ if __name__ == '__main__':
     ONE_WAVE_PT_TEST =     '../dataset/test_data' 
     ONE_WAVE_PT_ADD =      '../dataset/additional_data'     
 
-    ONE_WAVE_PT_EVALUATE = ONE_WAVE_PT_ADD
+    ONE_WAVE_PT_EVALUATE = ONE_WAVE_PT_TEST
     print(ONE_WAVE_PT_EVALUATE)
 
     load_model = True
@@ -177,7 +177,7 @@ if __name__ == '__main__':
                     TP += 1
                     CP += 1
                 
-        print('Evaluation --> Loss: {:.4f} \tAcc: {:.3f}% \tCorrect/Total: ({}/{})\n\
+        print('Evaluation beat-wise--> Loss: {:.4f} \tAcc: {:.3f}% \tCorrect/Total: ({}/{})\n\
          Specificity: {:.3f}% \tSensitivity: {:.3f}% \tTP/TN: {}/{} \tLabel 0/1: {}/{}'
                         .format(test_loss/(i+1)/ex_num, 100.*(TN+TP)/(i+1), (TN+TP), (i+1), \
                                 100.*TP/CP, 100.*TN/CN, TP, TN, (TN+FP), (FN+TP)))

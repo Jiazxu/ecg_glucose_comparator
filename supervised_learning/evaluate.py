@@ -120,7 +120,7 @@ if __name__ == '__main__':
             CP += labels.sum().item()
             CN += (labels.size(0) - labels.sum().item())    
 
-        print('Evaluation --> Loss: {:.4f} \tAcc: {:.3f}% \tCorrect/Total: ({}/{})\n\
+        print('Evaluation beat-wise--> Loss: {:.4f} \tAcc: {:.3f}% \tCorrect/Total: ({}/{})\n\
             Specificity: {:.3f}% \tSensitivity: {:.3f}% \tTP/TN: {}/{}'
                         .format(test_loss/total, 100.*correct/total, correct, total, \
                                 100.*TP/CP, 100.*TN/CN, TP, TN))

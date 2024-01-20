@@ -2,27 +2,72 @@
 # A blood glucose level binary classification deep neural network
 ---
 
-## 0. Model and Result
+##I. OUTLINE - Model and Result
 
-**Model Architecture**
+**1.Model Architecture**
 
 <div align="center">
 <img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/description/comparator_learning.png">
 </div>
 
-**Training Loss&Acc**
+**2.Training Loss&Acc**
 
 <div align="center">
 <img src="https://github.com/Jiazxu/ecg_glucose_comparator/blob/master/checkpoint/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3/effnetv2_ecg_comparator_v5_l_xxxs_20240111_epoch100_4e-3.png">
 </div>
 
+**3.Evaluation Acc**
+test dataset:
+
+```terminal
+# Load model with pretrained weights
+cd ecg_glucose_comparator
+python evaluate.py --resume
+```
+
+Testing result:
+**beat-wise:** Acc: 98.910% Correct/Total: (998/1009)
+**wave-wise (30s sample):** Acc: 100.000% Correct/Total: (32/32)
+
+```terminal
+../dataset/test_data
+==> Load model...
+==> Resuming from checkpoint...
+The last model accuracy is 97.585%
+Last training epoch: 89
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 5363
+==> Loading data...
+==> DataLoader completed!
+==> Data total samples: 1009
+checkpoint 0: 50 50
+checkpoint 1: torch.Size([50, 1]) torch.Size([50, 8, 96])
+checkpoint 2: 49.0 49.0
+100%|█████████████████████████████████████████████████| 1009/1009 [00:18<00:00, 54.96it/s]
+Evaluation beat-wise--> Loss: 0.0168     Acc: 98.910%    Correct/Total: (998/1009)
+         Specificity: 100.000%  Sensitivity: 98.588%    TP/TN: 230/768  Label 0/1: 779/230
+Fast waves:
+100%|█████████████████████████████████████████████████| 25/25 [00:08<00:00,  2.89it/s]
+Glucose waves:
+100%|█████████████████████████████████████████████████| 7/7 [00:02<00:00,  2.78it/s]
+Total evaluated beats: 1009
+Evaluation wave-wise--> Loss: 0.0252    Acc: 100.000%   Correct/Total: (32/32)
+         Specificity: 100.000%  Sensitivity: 100.000%   TP/TN: 7/25     Label 0/1: 25/7
+Wrong prediction list:
+```
+
 ## I. Dataset
 
-Total 264 ECG samples (divided into 8,543 QRS waves) recorded in 13 days.
+**Total 264 one-lead ECG wave samples (30s for each, divided into 8,543 beats totally) recorded in 13 days.**
+
+**Recording equipment:** iWatch Ultra
+Software: Version 1.9
+Sample Rate: 512 hertz
 
 I splitted the data randomly **by date** into three dataset: training dataset, validation dataset and test dataset. The splitting ratio is 60:20:20.
 
-△ If all samples were mixed and splitted randomly, it could deteriorate the model performance in the real world. Because the waves recorded in the same date are similar.
+△ If all wave samples were mixed and splitted randomly, it could deteriorate the model performance in the real world. Because the waves recorded in the same date are similar.
 
 These ECG waves were classified into two labels:
 
