@@ -1,5 +1,5 @@
 ---
-# A blood glucose level binary classification deep neural network, Acc=100%
+# A Personalized blood glucose level binary classification deep neural network, Acc=100%
 ---
 
 ## I. OUTLINE - Model and Result
@@ -63,6 +63,8 @@ Wrong prediction list:
 ```
 
 ## II. Dataset
+
+**All ECG waves were recorded from a specific individual (myself)** and **the model can only be applied to this specific individual (myself) !**
 
 **Total 264 one-lead ECG wave samples (30s for each wave, divided into 8,543 beats totally) recorded in 13 days.**
 
@@ -135,13 +137,15 @@ Here is my model:
 
 ## V. About this project
 
-I have been curious about the application of big data on healthcare for a long time, since I was a undergraduate medicine student.
+Since I was a medicine student a few years ago, I have been curious about the application of big data on healthcare.
 
-🤔Human body is a complex system, creating high dimensional data all the time. For decades, Scientists are trying to analysis the manifold from these complicated data and its projections on different dimensions and levels, and related them with all kinds of phenomena, such as diseases, mental conditions, pathological changes and results from labs and medical equipments. On the other hand, it is also a really exciting road to discover new data source and new methdology to manage human beings heathcare.
+🤔Human body is a complex system, producing high dimensional data all the time. For decades, Scientists are trying to analysis the manifold from these complicated data and its projections on different dimensions and levels, and related them with all kinds of phenomena, such as diseases, mental conditions, pathological changes and results from labs and medical equipments. On the other hand, it is also a really exciting road to discover new data source and new methdology to manage human beings heathcare.
 
-My vision is to broaden the possibilities and perspectives of big data, combining them with wearables.
+From a statistical aspect, however, we should exploit individual data to find more useful and personally unique information or patterns which are hidden by group statistics and 95% confidence interval -- which we called **personalized medicine** or **precision medicine**.
 
-I collected all the ECG data from my iWatch Ultra in September, 2023.
+My vision is fucusing individual, to broaden the possibilities and perspectives of big data, combining them with wearables.
+
+Using iWatch Ultra, I collected all the ECG data from myself in September, 2023.
 
 (1) According to my recent physical examination, I have a normal health condition, which means that I am able to raise my BG level significantly after consuming a large amount of sugar.
 
